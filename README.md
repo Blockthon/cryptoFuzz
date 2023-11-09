@@ -1,5 +1,13 @@
+<div style="display: flex; justify-content: space-between; align-items: center;">
+
+
+<img src="https://raw.githubusercontent.com/Pymmdrza/cryptoFuzz/gh-pages/doc/img/cryptoFuzz_Logo.png" title="Cryptofuzz / Generated and Converted Private and Public Key Very Easy On Python With cryptofuzz" alt="cryptofuzz python cryptography library" width="136" height="136"> 
+
+</div> 
+
 # CryptoFuzz
----
+
+
 
 ## Installing & Quick Use
 
@@ -372,6 +380,79 @@ from cryptofuzz import Wif_To_Mnemonic
 wif = "WIF_STRING_HERE"
 mnemonic_string = Wif_To_Mnemonic(wif)
 ```
+### Wif To Private Key:
+convert wif to private key (hex)
+```python
+from cryptofuzz import Convertor
+
+convertor = Convertor()
+wif_string = "WIF_KEY_COMPRESS_OR_UNCOMPRESS"
+privatekey = convertor.wif_to_hex(wif_string)
+```
+
+### Wif To XPRV
+convert wif key to xprv (root key):
+```python
+from cryptofuzz import Convertor
+
+convertor = Convertor()
+wif_string = "WIF_KEY_COMPRESS_OR_UNCOMPRESS"
+# root key (xprv)
+xprv = convertor.wif_to_xprv(wif_string)
+```
+
+### Wif To Decimal (integer/number)
+convert wif key to decimal number :
+```python
+from cryptofuzz import Convertor
+
+convertor = Convertor()
+wif_string = "WIF_KEY_COMPRESS_OR_UNCOMPRESS"
+# dec
+dec = convertor.wif_to_int(wif_string)
+```
+
+### Wif To XPUB
+
+convert wif key to xpub (root public key):
+
+```python
+from cryptofuzz import Convertor
+
+convertor = Convertor()
+wif_string = "WIF_KEY_COMPRESS_OR_UNCOMPRESS"
+#xpublic key
+xpub = convertor.wif_to_xpub(wif_string)
+```
+
+### Wif To Address
+
+convert wif key to compressed and uncompressed address
+
+```python
+from cryptofuzz import Convertor
+
+convertor = Convertor()
+wif_string = "WIF_KEY_COMPRESS_OR_UNCOMPRESS"
+# compress
+compress_address = convertor.wif_to_addr(wif_string, True)
+# uncompress
+uncompress_address = convertor.wif_to_addr(wif_string, False)
+```
+
+### Wif To Mnemonic
+
+convert wif key to mnemonic 
+
+```python
+from cryptofuzz import Convertor
+
+convertor = Convertor()
+wif_string = "WIF_KEY_COMPRESS_OR_UNCOMPRESS"
+# mnemonic 
+mnemonic_str = convertor.wif_to_mne(wif_string)
+```
+
 ---
 ### Passphrase To Compress And Uncompress Address
 ```python
@@ -394,6 +475,8 @@ xprv = Bytes_To_XPRV(seed)
 xpub = Bytes_To_XPUB(seed)
 
 ```
+
+More example follow : [Example](https://github.com/Pymmdrza/cryptoFuzz/tree/main/Example)
 
 ---
 
